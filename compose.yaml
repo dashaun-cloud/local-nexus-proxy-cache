@@ -2,8 +2,12 @@ services:
   nexus:
     image: sonatype/nexus3
     container_name: nexus
+    networks:
+      - nexus
     ports:
       - "8081:8081"
     restart: always
     volumes:
       - "./nexus-data:/nexus-data"
+networks:
+  nexus:
