@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+
+  <!--
+    Local Nexus proxy cache template.
+
+    Usage:
+      1. Copy this file to ~/.m2/settings.xml
+      2. Replace `maven-group` below with the name of the Nexus group repository
+         you created (which proxies your team's remotes, e.g. Maven Central).
+      3. Optionally add a <server> entry (see below) if Nexus requires credentials.
+  -->
+
+  <mirrors>
+    <mirror>
+      <id>local-nexus</id>
+      <name>Local Nexus Proxy Cache</name>
+      <url>http://localhost:8081/repository/maven-group</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
+  <!--
+    Optional: uncomment and fill in if your Nexus requires authentication.
+    The <id> must match the mirror <id> above.
+  <servers>
+    <server>
+      <id>local-nexus</id>
+      <username>admin</username>
+      <password>CHANGE_ME</password>
+    </server>
+  </servers>
+  -->
+
+</settings>

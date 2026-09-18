@@ -1,0 +1,25 @@
+// Local Nexus proxy cache template.
+//
+// Usage:
+//   1. Copy this file to ~/.gradle/init.gradle
+//   2. Replace `maven-group` below with the name of the Nexus group repository
+//      you created (which proxies your team's remotes, e.g. Maven Central).
+//   3. Uncomment the credentials block if Nexus requires authentication.
+//
+// This prepends the local Nexus repository to every project's repositories,
+// so cached artifacts resolve from your local cache first.
+
+allprojects {
+    repositories {
+        maven {
+            name = 'local-nexus'
+            url = 'http://localhost:8081/repository/maven-group'
+            allowInsecureProtocol = true
+            // Uncomment if your Nexus requires credentials:
+            // credentials {
+            //     username = 'admin'
+            //     password = 'CHANGE_ME'
+            // }
+        }
+    }
+}
